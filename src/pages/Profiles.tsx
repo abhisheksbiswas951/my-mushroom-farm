@@ -61,8 +61,8 @@ const Profiles = () => {
     setIsCreating(false);
   };
 
-  const handleDuplicate = (id: string) => {
-    const newProfile = duplicateProfile(id);
+  const handleDuplicate = async (id: string) => {
+    const newProfile = await duplicateProfile(id);
     if (newProfile) {
       toast({
         title: "Profile Duplicated",
