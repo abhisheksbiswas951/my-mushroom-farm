@@ -1,0 +1,43 @@
+import { MushroomProfile } from "@/types/mushroom";
+
+export const defaultProfiles: MushroomProfile[] = [
+  {
+    id: "oyster",
+    name: "Oyster",
+    icon: "🦪",
+    minHumidity: 80,
+    maxHumidity: 95,
+    minTemperature: 18,
+    maxTemperature: 24,
+    freshAirInterval: 60,
+    freshAirDuration: 120,
+    foggerMaxOnTime: 300,
+    isCustom: false,
+  },
+  {
+    id: "button",
+    name: "Button",
+    icon: "🍄",
+    minHumidity: 75,
+    maxHumidity: 85,
+    minTemperature: 14,
+    maxTemperature: 18,
+    freshAirInterval: 45,
+    freshAirDuration: 90,
+    foggerMaxOnTime: 240,
+    isCustom: false,
+  },
+  {
+    id: "milky",
+    name: "Milky",
+    icon: "🥛",
+    minHumidity: 70,
+    maxHumidity: 90,
+    minTemperature: 28,
+    maxTemperature: 35,
+    freshAirInterval: 30,
+    freshAirDuration: 60,
+    foggerMaxOnTime: 180,
+    isCustom: false,
+  },
+];
