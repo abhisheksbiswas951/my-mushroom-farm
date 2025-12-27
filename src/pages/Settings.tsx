@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Wifi,
   Bell,
@@ -10,16 +11,20 @@ import {
   Check,
   X,
   Loader2,
+  LogOut,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { BottomNav } from "@/components/BottomNav";
 import { useDeviceData } from "@/hooks/useDeviceData";
 import { useProfiles } from "@/hooks/useProfiles";
 import { useConnection } from "@/hooks/useConnection";
+import { useAuth } from "@/hooks/useAuth";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
 const Settings = () => {
+  const navigate = useNavigate();
+  const { user, signOut } = useAuth();
   const { deviceStatus } = useDeviceData();
   const { activeProfile, resetToDefaults, syncWithDevice, isSyncing } = useProfiles();
   const {
@@ -322,6 +327,34 @@ const Settings = () => {
             <RefreshCw className="w-5 h-5 text-warning" />
             <span>Reset Profiles to Defaults</span>
           </button>
+        </div>
+
+        {/* Account */}
+        <div className="glass rounded-2xl overflow-hidden animate-fade-in">
+          <div className="p-4 border-b border-border">
+            <h3 className="font-semibold flex items-center gap-2">
+              <Info className="w-5 h-5 text-primary" />
+              Account
+            </h3>
+          </div>
+          <div className="p-4 space-y-3">
+            <div className="flex justify-between items-center">
+              <span className="text-muted-foreground">Email</span>
+              <span className="font-semibold text-sm truncate max-w-[180px]">
+                {user?.email}
+              </span>
+            </div>
+            <button
+              onClick={async () => {
+                await signOut();
+                navigate('/auth');
+              }}
+              className="w-full py-3 px-4 rounded-xl bg-destructive/10 text-destructive hover:bg-destructive/20 transition-colors flex items-center justify-center gap-2"
+            >
+              <LogOut className="w-5 h-5" />
+              Sign Out
+            </button>
+          </div>
         </div>
 
         {/* App Info */}
