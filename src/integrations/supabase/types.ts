@@ -14,6 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
+      mushroom_profiles: {
+        Row: {
+          created_at: string
+          fogger_max_on_time: number
+          fresh_air_duration: number
+          fresh_air_interval: number
+          humidity_max: number
+          humidity_min: number
+          id: string
+          is_active: boolean
+          is_default: boolean
+          name: string
+          temperature_max: number
+          temperature_min: number
+          type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          fogger_max_on_time?: number
+          fresh_air_duration?: number
+          fresh_air_interval?: number
+          humidity_max?: number
+          humidity_min?: number
+          id?: string
+          is_active?: boolean
+          is_default?: boolean
+          name: string
+          temperature_max?: number
+          temperature_min?: number
+          type?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          fogger_max_on_time?: number
+          fresh_air_duration?: number
+          fresh_air_interval?: number
+          humidity_max?: number
+          humidity_min?: number
+          id?: string
+          is_active?: boolean
+          is_default?: boolean
+          name?: string
+          temperature_max?: number
+          temperature_min?: number
+          type?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
